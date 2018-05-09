@@ -1,0 +1,88 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1. Write down the ls commands you would use to do the following\
+	1. ls -R ~	(recursive)\
+\
+	2. ls -a ~	(all)\
+\
+	3. There is a symbolic link from foo so that it will redirect to bar\
+\
+	4. ls -l \'97human-readable	(can add -a for all)\
+		Desktop\
+		Documents\
+		Downloads\
+		examples.desktop\
+		Music\
+		Pictures\
+		Public\
+		Templates\
+		Videos\
+\
+	5. ls -d -l /Documents\
+_____________________________________\
+\
+2.3 Assessment\
+\
+	1. 	
+\b Octal		Symbolic\
+		
+\b0 644		rw-r--r--\
+		755		rwxr-xr-x\
+		1777		rwxrwxrwt\
+		4755		rwsr-xr-x\
+		3070		---rws--T\
+		2060		---rwS--\
+\
+	2. Describe how games stop users not playing the game to update the scoreboard\
+		the group bits are not set for writing. Only root can write in usr/games. Anyone can executer the games, so they can play them. Root is the only user than can write to the score boards but they cannot execute. This means that other users who may set the s flag in order to mess with scores cannot execute the files as the root hence they cannot cheat :) \
+\
+	3. Describe the permission set drwxrwsr-x
+\b \
+		
+\b0 This file is a directory. The user has the ability to read, write and execute. Other people in the sam group as this user can read, write and execute the file as the owner (s). Everyone else can only read or execute.\
+ 
+\b \
+	
+\b0 4. Give a typical default umask value and describe its effect\
+		umask value 022 - files created have rw-r--r-- by default and rwxr-xr-x for directories\
+_____________________________\
+\
+3.3 Assessment\
+\
+	1. create a backup of /home/mal and store it in /tmp/mal-backup.tar.gz . set permissions so only mal can read it. Ensure it doesn\'92t not have home/mal/.. at the start of each entry on the archive\
+		DONE :) \
+\
+	2. How can you use umask to fix the problem of someone being able to open the file and read the contents before tar has finished and you have fixed the permissions\
+		umask changes the permissions assigned by default when a file is made. If you change the umask (from default) to the one that will result in your desired permissions there will not be any time when the file isn\'92t protected correctly by its permissions\
+\
+	3. Compare the features of diff-backup to the features we desire 
+\f1 \uc0\u10003 
+\f0  (meets requirement), x (doesn\'92t meet requirement), ? (unsure). Does diff-backup meet our stated needs?\
+		Remote			
+\f1 \uc0\u10003 
+\f0 \
+		Cheap 			? (yes i think)\
+		Plentiful snapshots		
+\f1 \uc0\u10003 
+\f0 \
+		Easy to restore		
+\f1 \uc0\u10003 
+\f0 \
+		Secure			? - uses SSH (is this secure enough?)\
+		Maintain meta-data		
+\f1 \uc0\u10003 
+\f0 \
+		Include/exclude selections	
+\f1 \uc0\u10003 
+\f0 \
+		Large files			
+\f1 \uc0\u10003 
+\f0 \
+\
+\
+}
