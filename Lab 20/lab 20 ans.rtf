@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1. Web certificates. How do they end up in your browser? Who makes the decision? How can someone get their certificate authority trusted in the browser? What happens if authority muss-issue some certificates?\
+\
+	Determined by the OS and browser that operate authorized CA membership programs that the CA has to pass.When the CA has been accepted by the device, it is able to issue certificates that are trusted by the browser/user.  But as a user, you are able to decide whether or not you want to trust them (browser sends a warming when you visit a site that is trusted by them). You can select the certificates and mark them untrusted or delete them.  \
+   	- MISUSE: Stolen code-signing certificates and associated private kets can sign malicious software to distribute malware. CA issue weak/improper certificates: can be used in attacks. Certificates can be used to sign malicious executables and phishing attacks. MITM attack certificates to intercept and capture SSL/TLS traffic - these situations are hard to detect\
+\
+2. advantages and disadvantages of authentication methods. Why is the shared secret bad and why are client/server certificates good? Is there a better method?\
+\
+	
+\b shared secret
+\b0  - advantages (simple). disadvantages ( security is based on the strength of a password, no strong identity check)\
+	
+\b client/server certificates
+\b0  - advantages (more secure than passwords, non-interactive login is possible). disadvantages (if private keys aren\'92t protected security is no better than with a password, not very scalable)\
+\
+3. briefly define the following PKI-related terms:\
+\
+	
+\b certificate store -
+\b0  Typically, a permanent storage where certificates, certificate revocation lists (CRLs), and certificate trust lists (CTLs) are stored\
+	
+\b certificate authority (CA)
+\b0  - Trusted entity that issues electronic documents that verify identity on the internet. Acts as a trusted third party\
+	
+\b registration authority
+\b0  - An authority in a network that verifies user requests for a digital certificate and tells the Certificate Authority (CA) to issue it. RAs are part of a public key infrastructure (PKI), a networked system that enables companies and users to exchange information and money safely and securely.\
+	
+\b central directory 
+\b0 - a secure location in which to store and index keys\
+	
+\b certificate management system
+\b0  - A  system that does all of the certificate management, including looking after the  protocols, ensuring the user doesn\'92t have to do it themself \
+	
+\b certificate policy 
+\b0 - A named set of rules that indicate the applicability of certificates for a specific class of applications with common security requirements\
+	
+\b x509 certificate
+\b0  - The standard format used in Certification Authority and Public Key certificates\
+	
+\b public key
+\b0  - a public key certificate, also known as a digital certificate or identity certificate, is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about the identity of its owner \
+	
+\b private key
+\b0  - The private key is a text file used initially to generate a Certificate Signing Request (CSR), and later to secure and verify connections using the certificate created per that request. The private key is used to create a digital signature\
+\
+__________________________________________________________________\
+ \
+2. What addresses do you expect to ping when the VPN is connected\
+	\
+	i should not be able to ping the inside network of my server (192.168.1.1) but can reach 10.8.0.0/24 (my VPN address). Different because we can\'92t reach the internal network just yet (not yet configured)\
+\
+3. Examine the routing table before and after connecting to the VPN\
+\
+	new routes to 10.8.0.1 and 10.8.0.1. Metrics are both 0 (traffic goes through the tunnel to these)\
+\
+4. Examine the traffic on the ethernet interface simulating a Man in the Middle attack. What implications does this hold for public VPN servers?\
+\
+	When you ping through the VPN network (10.8.0.1) you can still see the eventual location of the ping. (10.0.2.15). Essentially data is only encrypted in the VPN (ie. not when it enters or leaves). This means that the host of a public VPN will be able to see the traffic you send through the VPN. You need to trust the host with your data and if they\'92re not trust worthy they can do what they want with your data.\
+\
+\
+}
